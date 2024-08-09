@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Video</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href= "./static/css/sty.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Start Video Feed</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+      }
+      .video-container {
+        margin-top: 20px;
+      }
+    </style>
+
+  </head>
+  <header id="navbar-1" class="navbar-nav flex-row">
+    <a class="logo-section" href="javascript:void(0);" title="expleo machine learnig">
+      <img src="./static/Expleo_logo.png" width="162px" height="70px" alt="expleo" />
+    </a>
+    <ul class="align-items-center">
+      <li><a href="home">Home</a></li>
+      <li><a href="#home">About us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="login" class="action-url" data-href="01-index.html">
+            <span class="login-action">Logout</span>
+        </a>
+      </li>
+    </ul>
+</header>
+  <body>
+    <div class="container"><br><br>
+      <h1 align='center'>Live Video</h1>
+
+      <div class="video-container">
+        <img
+          id="live-video"
+          src="{{ url_for('video_feed') }}"
+          alt="Live Video Feed"
+        />
+        
+      </div>
+      <div>
+    </div>
+    <div align='center'><br><br>
+    <a href="/stop_feed" class="button">Stop Live</a>
+    </div>
+  </body>
+</html>

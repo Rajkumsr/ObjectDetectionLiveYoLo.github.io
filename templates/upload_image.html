@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOLOv5 Object Detection</title>
+    
+  </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href= "./static/css/sty.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+    <header id="navbar-1" class="navbar-nav flex-row">
+        <a class="logo-section" href="javascript:void(0);" title="expleo machine learnig">
+          <img src="./static/Expleo_logo.png" width="162px" height="70px" alt="expleo" />
+        </a>
+        <ul class="align-items-center">
+          <li><a href="home">Home</a></li>
+          <li><a href="#home">About us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="login" class="action-url" data-href="01-index.html">
+                <span class="login-action">Logout</span>
+            </a>
+          </li>
+        </ul>
+    </header>
+    <style>
+      body {
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+      .img-preview {
+        display: block;
+        margin: 20px auto;
+        max-width: 100%;
+      }
+      .table-responsive {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" align='center' ><br>
+      <h1 align='center'><b>Upload Image</b></h1>
+      <form action="/upload_image" method="post" enctype="multipart/form-data" >
+        <div class="form-group" align='center'>
+          <input
+          
+            type="file"
+            name="file"
+            accept=".jpg, .jpeg"
+            class="form-control-file"
+          />
+        </div>
+    <div class="container" ><br>
+        <button type="submit" class="btn btn-primary btn-block" align='center'>Upload</button>
+      </form>
+
+      {% if filename %}
+      <h2>Uploaded Image</h2>
+      <img
+        src="{{ url_for('static', filename='uploads/' + filename) }}"
+        alt="Uploaded Image"
+        class="img-preview"
+      />
+
+      {% if boxes_labels %}
+      <h3>Object Detection Results:</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          {{ boxes_labels | safe }}
+        </table>
+      </div>
+
+      <h2>Image with Predicted Results</h2>
+      <img
+        src="{{ url_for('static', filename='uploads/' + filename_processed) }}"
+        alt="Image with Predicted Results"
+        class="img-preview"
+      />
+      {% endif %} {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

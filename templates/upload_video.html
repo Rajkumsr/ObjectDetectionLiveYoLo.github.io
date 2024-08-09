@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Video</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Upload Video</h1>
+      <form
+        action="/upload_video"
+        method="post"
+        enctype="multipart/form-data"
+        class="mt-4"
+      >
+        <div class="form-group">
+          <input
+            type="file"
+            name="file"
+            accept=".mp4, .avi"
+            class="form-control-file"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Upload</button>
+      </form>
+
+      {% if filename %}
+      <h2 class="mt-4 text-center">Uploaded Video</h2>
+      <video width="500" controls class="d-block mx-auto mt-3">
+        <source
+          src="{{ url_for('static', filename='uploads/' + filename) }}"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <h2 class="mt-4 text-center">Processed Video</h2>
+      <video width="500" controls class="d-block mx-auto mt-3">
+        <source
+          src="{{ url_for('static', filename='uploads/' + processed_video_path) }}"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <h3 class="mt-4 text-center">Object Detection Results:</h3>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          {{ results_table | safe }}
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

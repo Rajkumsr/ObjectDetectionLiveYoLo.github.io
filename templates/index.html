@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOLOv5 Object Detection</title>
+    
+  </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href= "./static/css/sty.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+    <header id="navbar-1" class="navbar-nav flex-row">
+        <a class="logo-section" href="javascript:void(0);" title="expleo machine learnig">
+          <img src="./static/Expleo_logo.png" width="162px" height="70px" alt="expleo" />
+        </a>
+        <ul class="align-items-center">
+          <li><a href="home">Home</a></li>
+          <li><a href="#home">About us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="login" class="action-url" data-href="01-index.html">
+                <span class="login-action">Logout</span>
+            </a>
+          </li>
+        </ul>
+    </header>
+  <body>
+    <div class="container" align='center'>
+      <h1 align='center' ><b>Video Analysis And Object Labelling Model</h1></b><br>
+      <a href="/upload_image" class="button">Upload Image</a>
+      <a href="/start_feed" class="button">Start Live Feed</a>
+
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="message">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+    </div>
+  </body>
+</html>
